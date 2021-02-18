@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=hat_shop';
+    $dsn = 'mysql:host=localhost;dbname=bike_shop';
     $username = 'root';
     $password = '';
 
