@@ -9,7 +9,7 @@ $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
 // Validate inputs
 if ($category_id == null || $category_id == false ||
     $name == null || $engineSize == null || $price == null || $price == false ) {
-    $error = "Invalid product data. Check all fields and try again.";
+    $error = "Invalid bike data. Check all fields and try again.";
     include('error.php');
     exit();
 } else {
@@ -63,7 +63,7 @@ if ($category_id == null || $category_id == false ||
     require_once('database.php');
 
     // Add the product to the database 
-    $query = "INSERT INTO records
+    $query = "INSERT INTO bikes
                  (categoryID, name, EngineSize, price, image)
               VALUES
                  (:category_id, :name, :engineSize, :price, :image)";
