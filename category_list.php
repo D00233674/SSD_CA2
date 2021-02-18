@@ -25,7 +25,7 @@ include('includes/header.php');
             <td><?php echo $category['categoryName']; ?></td>
             <td>
                 <form action="delete_category.php" method="post"
-                      id="delete_product_form">
+                      id="delete_bike_form">
                     <input type="hidden" name="category_id"
                            value="<?php echo $category['categoryID']; ?>">
                     <input type="submit" value="Delete">

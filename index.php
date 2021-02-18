@@ -77,16 +77,16 @@ include('includes/header.php');
 <td><?php echo $bike['name']; ?></td>
 <td><?php echo $bike['EngineSize']; ?></td>
 <td class="right"><?php echo $bike['price']; ?></td>
-<td><form action="delete_record.php" method="post"
-id="delete_record_form">
+<td><form action="delete_bike.php" method="post"
+id="delete_bike_form">
 <input type="hidden" name="bike_id"
 value="<?php echo $bike['bikeID']; ?>">
 <input type="hidden" name="category_id"
 value="<?php echo $bike['categoryID']; ?>">
 <input type="submit" value="Delete">
 </form></td>
-<td><form action="edit_record_form.php" method="post"
-id="delete_record_form">
+<td><form action="edit_bike_form.php" method="post"
+id="delete_bike_form">
 <input type="hidden" name="bike_id"
 value="<?php echo $bike['bikeID']; ?>">
 <input type="hidden" name="category_id"
@@ -96,7 +96,7 @@ value="<?php echo $bike['categoryID']; ?>">
 </tr>
 <?php endforeach; ?>
 </table>
-<p><a href="add_record_form.php">Add Bike</a></p>
+<p><a href="add_bike_form.php">Add Bike</a></p>
 <p><a href="category_list.php">Manage Categories</a></p>
 </section>
 <?php
