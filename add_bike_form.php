@@ -27,11 +27,11 @@ include('includes/header.php');
             </select>
             <br>
             <label>Name:</label>
-            <input type="input" name="name">
+            <input type="input" name="name" placeholder="Add First Name Only" required>
             <br>
 
             <label>Engine Size:</label>
-            <input type="input" name="engineSize">
+            <input type="input" name="engineSize" required pattern="[a-zA-Z0-9]+">
             <br>
 
             <label>List Price:</label>
