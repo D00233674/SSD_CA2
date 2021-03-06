@@ -10,6 +10,8 @@ $statement->bindValue(':bike_id', $bike_id);
 $statement->execute();
 $bikes = $statement->fetch(PDO::FETCH_ASSOC);
 $statement->closeCursor();
+
+
 ?>
 <!-- the head section -->
  <div class="container">

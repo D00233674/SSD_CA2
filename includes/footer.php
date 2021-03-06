@@ -3,4 +3,6 @@
 </footer>
 </div><!-- close div container -->
 </body>
+<script src="./js/validation.js"></script>
 </html>
+

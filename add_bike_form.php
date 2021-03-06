@@ -27,19 +27,23 @@ include('includes/header.php');
             </select>
             <br>
             <label>Name:</label>
-            <input type="input" name="name" placeholder="Add First Name Only" required>
+            <input type="input" name="name" id="name" onBlur="validateName();" placeholder="Make and Model of Bike" required>
+            <span id="nameValid"></span>
             <br>
 
             <label>Engine Size:</label>
-            <input type="input" name="engineSize" required pattern="[a-zA-Z0-9]+">
+            <input type="input" name="engineSize" id="engineSize" onBlur="validateEngineSize();" placeholder="125cc Or 500cc" required>
+            <span id="engineSizeValid"></span>
             <br>
 
             <label>List Price:</label>
-            <input type="input" name="price">
-            <br>      
+            <input type="input" name="price" id="listPrice" onBlur="validateListPrice();" placeholder="Selling Price" required>
+            <span id="listPriceValid"></span> 
+            <br>     
 
             <label>Last Service:</label>
-            <input type="input" name="lastService" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"> 
+            <input type="input" name="lastService" id="serviceDate" onBlur="validateServiceDate();" placeholder="Date of Last Service" required> 
+            <span id="serviceDateValid"></span> 
             <br>   
             
             <label>Image:</label>
