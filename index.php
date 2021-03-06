@@ -40,9 +40,10 @@ $statement3->closeCursor();
 ?>
 <div class="container">
 <?php
+
 include('includes/header.php');
 ?>
-<h1>Bike List</h1>
+<h1>Bike Shop</h1>
 
 <aside>
 <!-- display a list of categories -->
@@ -68,6 +69,7 @@ include('includes/header.php');
 <th>Name</th>
 <th>Engine Size</th>
 <th>Price</th>
+<th>Last Service</th>
 <th>Delete</th>
 <th>Edit</th>
 </tr>
@@ -75,8 +77,9 @@ include('includes/header.php');
 <tr>
 <td><img src="image_uploads/<?php echo $bike['image']; ?>" width="100px" height="100px" /></td>
 <td><?php echo $bike['name']; ?></td>
-<td><?php echo $bike['EngineSize']; ?></td>
+<td><?php echo $bike['engineSize']; ?></td>
 <td class="right"><?php echo $bike['price']; ?></td>
+<td><?php echo $bike['lastService']; ?></td>
 <td><form action="delete_bike.php" method="post"
 id="delete_bike_form">
 <input type="hidden" name="bike_id"

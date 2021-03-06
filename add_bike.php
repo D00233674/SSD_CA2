@@ -5,10 +5,11 @@ $category_id = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
 $name = filter_input(INPUT_POST, 'name');
 $engineSize = filter_input(INPUT_POST, 'engineSize');
 $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+$lastService = filter_input(INPUT_POST, 'lastService');
 
 // Validate inputs
 if ($category_id == null || $category_id == false ||
-    $name == null || $engineSize == null || $price == null || $price == false ) {
+    $name == null || $engineSize == null || $price == null || $lastService == false || $price == false ) {
     $error = "Invalid bike data. Check all fields and try again.";
     include('error.php');
     exit();
@@ -64,14 +65,15 @@ if ($category_id == null || $category_id == false ||
 
     // Add the product to the database 
     $query = "INSERT INTO bikes
-                 (categoryID, name, EngineSize, price, image)
+                 (categoryID, name, engineSize, price, lastService, image)
               VALUES
-                 (:category_id, :name, :engineSize, :price, :image)";
+                 (:category_id, :name, :engineSize, :price, :lastService, :image)";
     $statement = $db->prepare($query);
     $statement->bindValue(':category_id', $category_id);
     $statement->bindValue(':name', $name);
     $statement->bindValue(':engineSize', $engineSize);
     $statement->bindValue(':price', $price);
+    $statement->bindValue(':lastService', $lastService);
     $statement->bindValue(':image', $image);
     $statement->execute();
     $statement->closeCursor();

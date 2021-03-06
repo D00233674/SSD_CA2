@@ -36,7 +36,11 @@ include('includes/header.php');
 
             <label>List Price:</label>
             <input type="input" name="price">
-            <br>        
+            <br>      
+
+            <label>Last Service:</label>
+            <input type="input" name="lastService" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"> 
+            <br>   
             
             <label>Image:</label>
             <input type="file" name="image" accept="image/*" />
