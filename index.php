@@ -49,9 +49,9 @@ include('includes/header.php');
 <!-- display a list of categories -->
 <h2>Categories</h2>
 <nav>
-<ul>
+<ul id="category-list">
 <?php foreach ($categories as $category) : ?>
-<li><a class="button" href=".?category_id=<?php echo $category['categoryID']; ?>">
+<li class="button"><a href=".?category_id=<?php echo $category['categoryID']; ?>">
 <?php echo $category['categoryName']; ?>
 </a>
 </li>
@@ -86,7 +86,7 @@ id="delete_bike_form">
 value="<?php echo $bike['bikeID']; ?>">
 <input type="hidden" name="category_id"
 value="<?php echo $bike['categoryID']; ?>">
-<input type="submit" value="Delete">
+<input class="red-button" type="submit" value="Delete">
 </form></td>
 <td><form action="edit_bike_form.php" method="post"
 id="delete_bike_form">
@@ -94,13 +94,13 @@ id="delete_bike_form">
 value="<?php echo $bike['bikeID']; ?>">
 <input type="hidden" name="category_id"
 value="<?php echo $bike['categoryID']; ?>">
-<input type="submit" value="Edit">
+<input class="green-button" type="submit" value="Edit">
 </form></td>
 </tr>
 <?php endforeach; ?>
 </table>
-<p><a href="add_bike_form.php">Add Bike</a></p>
-<p><a href="category_list.php">Manage Categories</a></p>
+<p class="margin-bottom"><a class="add-button" href="add_bike_form.php">Add Bike</a></p>
+<p><a class="manage-button" href="category_list.php">Manage Categories</a></p>
 </section>
 <?php
 include('includes/footer.php');

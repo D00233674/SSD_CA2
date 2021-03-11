@@ -51,10 +51,10 @@ include('includes/header.php');
             <br>
             
             <label>&nbsp;</label>
-            <input type="submit" value="Add Bike">
+            <input class="add-button submit-button" type="submit" value="Add Bike">
             <br>
         </form>
-        <p><a href="index.php">View Homepage</a></p>
+        <p><a class="manage-button homepage-button" href="index.php">View Homepage</a></p>
     <?php
 include('includes/footer.php');
 ?>

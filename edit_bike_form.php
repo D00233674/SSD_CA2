@@ -60,14 +60,14 @@ include('includes/header.php');
             <input type="file" name="image" accept="image/*" />
             <br>            
             <?php if ($bikes['image'] != "") { ?>
-            <p><img src="image_uploads/<?php echo $bikes['image']; ?>" height="150" /></p>
+            <p id="edit-img"><img src="image_uploads/<?php echo $bikes['image']; ?>" height="150" /></p>
             <?php } ?>
             
             <label>&nbsp;</label>
-            <input type="submit" value="Save Changes">
+            <input class="add-button submit-button" type="submit" value="Save Changes">
             <br>
         </form>
-        <p><a href="index.php">View Homepage</a></p>
+        <p><a class="manage-button homepage-button" href="index.php">View Homepage</a></p>
     <?php
 include('includes/footer.php');
 ?>
