@@ -62,10 +62,14 @@ function validateServiceDate() {
     }
 }
 
-// function validateForm() {
-//     validateCategory();
-//     validateName();
-//     validateEngineSize();
-//     validateListPrice();
-//     validateServiceDate();
-// }
+function validateForm() {
+    if(document.getElementById("name") != null){
+        if(document.getElementById("category_id") != null){
+            validateCategory();
+        }
+        validateName();
+        validateEngineSize();
+        validateListPrice();
+        validateServiceDate();
+    }
+}

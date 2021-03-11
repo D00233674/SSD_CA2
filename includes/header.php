@@ -8,5 +8,5 @@
 </head>
 
 <!-- the body section -->
-<body>
+<body onload="validateForm();">
 <header><h1>My PHP CRUD app</h1></header>

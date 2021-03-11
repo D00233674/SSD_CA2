@@ -16,13 +16,13 @@ $search;
 if (!isset($name)) {
 $name = filter_input(INPUT_POST, 'name-searched');
 $search = true;
+// echo $name;
 if ($name == NULL || $name == FALSE) {
 $name = "";
 $search = false;
 }
 }
 
-echo $name;
 
 // Get name for current category
 $queryCategory = "SELECT * FROM categories
@@ -55,13 +55,15 @@ $statement3->closeCursor();
 // $search = false;
 
 $queryRecords = "SELECT * FROM bikes
-WHERE bikes.name = :name
+WHERE bikes.name LIKE :name
 ORDER BY bikeID";
 $statement3 = $db->prepare($queryRecords);
-$statement3->bindValue(':name', $name);
+$statement3->bindValue(':name', "$name%");
 $statement3->execute();
 $searchedBikes = $statement3->fetchAll();
 $statement3->closeCursor();
+
+
 
 ?>
 <div class="container">
@@ -73,7 +75,7 @@ include('includes/header.php');
 <h1 id="page-heading">Bike Shop</h1>
 
 <form action="index.php" method="post" id="search-form">
-    <input type="text" id="name-searched" name="name-searched" placeholder="Make/Model of Bike" />
+    <input type="text" id="name-searched" name="name-searched" placeholder="Make/Model of Bike" value="<?php echo $name?>" />
     <input class="green-button" type="submit" value="Search">
 </form>
 <form action="index.php" method="post" id="reset-form">
@@ -103,6 +105,9 @@ include('includes/header.php');
 <h2><?php echo $category_name; ?></h2>
 <?php } ?>
 <table>
+<?php if($search && $searchedBikes == null) {?>
+    <p>* No Bikes Found</p>
+    <?php }else{?>
 <thead>
 <th>Image</th>
 <th>Name</th>
@@ -112,6 +117,7 @@ include('includes/header.php');
 <th>Delete</th>
 <th>Edit</th>
 </thead>
+<?php }?>
 <tbody>
 <?php if(!$search){ ?>
 <?php foreach ($bikes as $bike) : ?>
@@ -165,7 +171,7 @@ value="<?php echo $bike['categoryID']; ?>">
 </form></td>
 </tr>
 <?php endforeach; ?>
-<?php } ?>
+<?php }  ?>
 </tbody>
 </table>
 <p class="margin-bottom"><a class="add-button" href="add_bike_form.php">Add Bike</a></p>
