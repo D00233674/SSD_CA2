@@ -12,6 +12,7 @@ $bikes = $statement->fetch(PDO::FETCH_ASSOC);
 $statement->closeCursor();
 
 
+
 ?>
 <!-- the head section -->
  <div class="container">
@@ -27,8 +28,8 @@ include('includes/header.php');
 
             <label>Category ID:</label>
             <input type="category_id" name="category_id"
-            value="<?php echo $bikes['categoryID']; ?>">
-            <span id="categoryValid">&#10004;</span>
+            id="category_id" onBlur="validateCategory();" placeholder="Bike Category" required value="<?php echo $bikes['categoryID']; ?>">
+            <span id="categoryValid"></span>
             <br>
 
             <label>Name:</label>
