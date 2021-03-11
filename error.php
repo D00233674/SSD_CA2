@@ -9,15 +9,18 @@
 
 <!-- the body section -->
 <body>
-    <header><h1>My Bike Shop</h1></header>
+<div class="container">
+<?php include('includes/header.php'); ?>
+    <!-- <header><h1>My Bike Shop</h1></header> -->
 
     <main>
-        <h2 class="top">Error</h2>
+        <br>
+        <h2 class="top">Error!</h2>
         <p><?php echo $error; ?></p>
+        <br>
+        <p><a class="manage-button" href="index.php">Return Home</a></p>
     </main>
-
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> My Bike Shop, Inc.</p>
-    </footer>
+</div>
+    <?php include('includes/footer.php'); ?>
 </body>
 </html>
