@@ -1,11 +1,27 @@
+
 function validateName() {
-    // alert("hello");
+    const pattern = /^[a-zA-z]+$/;
+    // console.log("hello");
     if(document.getElementById("name").value == ""){
-        document.getElementById("nameValid").innerHTML = "";
+        document.getElementById("nameValid").innerHTML = " * Please enter your Make/Model!";
+    } else if(!pattern.test(String(document.getElementById("name").value))) {
+        document.getElementById("nameValid").innerHTML = " * Invalid format! (Must be alphabetic)";
     } else {
         document.getElementById("nameValid").innerHTML = "&#10004;";
     }
 }
+
+// function validateCategory() {
+//     const pattern = /^[0-9]{1,2}$/;
+//     alert("hello");
+//     if(document.getElementById("category_id").value == ""){
+//         document.getElementById("categoryValid").innerHTML = " * Please enter your Bike Category!";
+//     } else if(!pattern.test(String(document.getElementById("category_id").value))) {
+//         document.getElementById("categoryValid").innerHTML = " * Invalid format! (eg; 1-10)";
+//     } else {
+//         document.getElementById("categoryValid").innerHTML = "&#10004;";
+//     }
+// }
 
 function validateEngineSize() {
     const pattern = /^[0-9]{2,4}cc$/;
@@ -22,11 +38,14 @@ function validateEngineSize() {
 }
 
 function validateListPrice() {
-    const pattern = /^[0-9]+$/;
+    alert("Helllo");
+    const pattern = /^([0-9]+)([.00]?)$/;
+    // const pattern = "\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})";
     if(document.getElementById("listPrice").value == ""){
         document.getElementById("listPriceValid").innerHTML = " * Please enter your List Price!";
     } else if(!pattern.test(String(document.getElementById("listPrice").value))) {
-        document.getElementById("listPriceValid").innerHTML = " * Invalid format! (Please enter numeric value)";
+        console.log("Helllo");
+        document.getElementById("listPriceValid").innerHTML = " * adfafasdfInvalid format! (Please enter numeric value)";
     } else {
         document.getElementById("listPriceValid").innerHTML = "&#10004;";
     }
@@ -42,3 +61,4 @@ function validateServiceDate() {
         document.getElementById("serviceDateValid").innerHTML = "&#10004;";
     }
 }
+

@@ -27,27 +27,32 @@ include('includes/header.php');
 
             <label>Category ID:</label>
             <input type="category_id" name="category_id"
-                   value="<?php echo $bikes['categoryID']; ?>">
+            value="<?php echo $bikes['categoryID']; ?>">
+            <span id="categoryValid">&#10004;</span>
             <br>
 
             <label>Name:</label>
             <input type="input" name="name"
-                   value="<?php echo $bikes['name']; ?>">
+            id="name" onBlur="validateName();" placeholder="Make and Model of Bike" required value="<?php echo $bikes['name']; ?>">
+            <span id="nameValid"></span>
             <br>
 
             <label>Engine Size:</label>
             <input type="input" name="engineSize"
-                   value="<?php echo $bikes['engineSize']; ?>">
+            id="engineSize" onBlur="validateEngineSize();" placeholder="125cc Or 500cc" required value="<?php echo $bikes['engineSize']; ?>">
+            <span id="engineSizeValid"></span>
             <br>
 
             <label>List Price:</label>
             <input type="input" name="price"
-                   value="<?php echo $bikes['price']; ?>">
+            id="listPrice" onBlur="validateListPrice();" placeholder="Selling Price" required value="<?php echo $bikes['price']; ?>">
+            <span id="listPriceValid"></span> 
             <br>
 
             <label>Last Service:</label>
             <input type="input" name="lastService"
-                   value="<?php echo $bikes['lastService']; ?>" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
+                   value="<?php echo $bikes['lastService']; ?>" id="serviceDate" onBlur="validateServiceDate();" placeholder="Date of Last Service" required>
+            <span id="serviceDateValid"></span> 
             <br>
 
             <label>Image:</label>

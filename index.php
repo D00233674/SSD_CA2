@@ -51,7 +51,7 @@ include('includes/header.php');
 <nav>
 <ul>
 <?php foreach ($categories as $category) : ?>
-<li><a href=".?category_id=<?php echo $category['categoryID']; ?>">
+<li><a class="button" href=".?category_id=<?php echo $category['categoryID']; ?>">
 <?php echo $category['categoryName']; ?>
 </a>
 </li>
