@@ -64,7 +64,7 @@ include('includes/header.php');
 <!-- display a table of bikes -->
 <h2><?php echo $category_name; ?></h2>
 <table>
-<tr>
+<thead>
 <th>Image</th>
 <th>Name</th>
 <th>Engine Size</th>
@@ -72,7 +72,8 @@ include('includes/header.php');
 <th>Last Service</th>
 <th>Delete</th>
 <th>Edit</th>
-</tr>
+</thead>
+<tbody>
 <?php foreach ($bikes as $bike) : ?>
 <tr>
 <td><img src="image_uploads/<?php echo $bike['image']; ?>" width="100px" height="100px" /></td>
@@ -98,6 +99,7 @@ value="<?php echo $bike['categoryID']; ?>">
 </form></td>
 </tr>
 <?php endforeach; ?>
+</tbody>
 </table>
 <p class="margin-bottom"><a class="add-button" href="add_bike_form.php">Add Bike</a></p>
 <p><a class="manage-button" href="category_list.php">Manage Categories</a></p>

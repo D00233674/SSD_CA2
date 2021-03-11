@@ -36,9 +36,9 @@ li {
 a {
     color: rgb(41, 64, 124);
     font-weight: bold;
-}
-a:hover {
-    color: rgb(208, 133, 4);
+    &:hover {
+        color: rgb(208, 133, 4);
+    }
 }
 table {
     border: 1px solid black;
@@ -50,6 +50,18 @@ td, th {
     vertical-align: top;
     text-align: left;
 }
+
+tbody {
+    tr:hover {
+        background-color: $light-grey;
+    }
+}
+
+thead {
+    background-color: $blue;
+    color: white;
+}
+
 form {
     margin: 0;
 }
