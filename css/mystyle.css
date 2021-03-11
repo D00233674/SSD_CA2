@@ -62,6 +62,7 @@ body {
 }
 
 section {
+  margin-top: 1%;
   float: left;
   width: 800PX;
   padding-bottom: 1.5em;
@@ -244,6 +245,14 @@ br {
 
 #edit-img {
   margin-left: 17.5%;
+}
+
+#page-heading, #search-form, #reset-form {
+  display: inline-block;
+}
+
+#search-form {
+  margin-left: 2.5%;
 }
 
 /* Here is where the sidebar styles start */

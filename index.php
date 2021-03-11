@@ -10,6 +10,20 @@ $category_id = 1;
 }
 }
 
+$search;
+
+// Get name
+if (!isset($name)) {
+$name = filter_input(INPUT_POST, 'name-searched');
+$search = true;
+if ($name == NULL || $name == FALSE) {
+$name = "";
+$search = false;
+}
+}
+
+echo $name;
+
 // Get name for current category
 $queryCategory = "SELECT * FROM categories
 WHERE categoryID = :category_id";
@@ -37,13 +51,36 @@ $statement3->bindValue(':category_id', $category_id);
 $statement3->execute();
 $bikes = $statement3->fetchAll();
 $statement3->closeCursor();
+
+// $search = false;
+
+$queryRecords = "SELECT * FROM bikes
+WHERE bikes.name = :name
+ORDER BY bikeID";
+$statement3 = $db->prepare($queryRecords);
+$statement3->bindValue(':name', $name);
+$statement3->execute();
+$searchedBikes = $statement3->fetchAll();
+$statement3->closeCursor();
+
 ?>
 <div class="container">
 <?php
 
 include('includes/header.php');
 ?>
-<h1>Bike Shop</h1>
+<div id="sub-header">
+<h1 id="page-heading">Bike Shop</h1>
+
+<form action="index.php" method="post" id="search-form">
+    <input type="text" id="name-searched" name="name-searched" placeholder="Make/Model of Bike" />
+    <input class="green-button" type="submit" value="Search">
+</form>
+<form action="index.php" method="post" id="reset-form">
+    <input type="hidden" id="name-searched" name="name-searched" value=""/>
+    <input class="red-button" type="submit" value="Reset">
+</form>
+</div>
 
 <aside>
 <!-- display a list of categories -->
@@ -62,7 +99,9 @@ include('includes/header.php');
 
 <section>
 <!-- display a table of bikes -->
+<?php if(!$search){ ?>
 <h2><?php echo $category_name; ?></h2>
+<?php } ?>
 <table>
 <thead>
 <th>Image</th>
@@ -74,6 +113,7 @@ include('includes/header.php');
 <th>Edit</th>
 </thead>
 <tbody>
+<?php if(!$search){ ?>
 <?php foreach ($bikes as $bike) : ?>
 <tr>
 <td><img src="image_uploads/<?php echo $bike['image']; ?>" width="100px" height="100px" /></td>
@@ -99,6 +139,33 @@ value="<?php echo $bike['categoryID']; ?>">
 </form></td>
 </tr>
 <?php endforeach; ?>
+<?php } else { ?>
+<?php foreach ($searchedBikes as $bike) : ?>
+<tr>
+<td><img src="image_uploads/<?php echo $bike['image']; ?>" width="100px" height="100px" /></td>
+<td><?php echo $bike['name']; ?></td>
+<td><?php echo $bike['engineSize']; ?></td>
+<td class="right"><?php echo $bike['price']; ?></td>
+<td><?php echo $bike['lastService']; ?></td>
+<td><form action="delete_bike.php" method="post"
+id="delete_bike_form">
+<input type="hidden" name="bike_id"
+value="<?php echo $bike['bikeID']; ?>">
+<input type="hidden" name="category_id"
+value="<?php echo $bike['categoryID']; ?>">
+<input class="red-button" type="submit" value="Delete">
+</form></td>
+<td><form action="edit_bike_form.php" method="post"
+id="delete_bike_form">
+<input type="hidden" name="bike_id"
+value="<?php echo $bike['bikeID']; ?>">
+<input type="hidden" name="category_id"
+value="<?php echo $bike['categoryID']; ?>">
+<input class="green-button" type="submit" value="Edit">
+</form></td>
+</tr>
+<?php endforeach; ?>
+<?php } ?>
 </tbody>
 </table>
 <p class="margin-bottom"><a class="add-button" href="add_bike_form.php">Add Bike</a></p>
