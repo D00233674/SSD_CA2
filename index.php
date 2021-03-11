@@ -10,7 +10,7 @@ $category_id = 1;
 }
 }
 
-$search;
+$search = false;
 
 // Get name
 if (!isset($name)) {

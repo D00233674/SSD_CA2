@@ -20,7 +20,9 @@
         <br>
         <p><a class="manage-button" href="index.php">Return Home</a></p>
     </main>
-</div>
+    <br>
     <?php include('includes/footer.php'); ?>
+</div>
+    
 </body>
 </html>

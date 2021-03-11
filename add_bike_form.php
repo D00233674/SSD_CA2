@@ -55,6 +55,5 @@ include('includes/header.php');
             <br>
         </form>
         <p><a class="manage-button homepage-button" href="index.php">View Homepage</a></p>
-    <?php
-include('includes/footer.php');
-?>
+        <br>
+    <?php include('includes/footer.php'); ?>
