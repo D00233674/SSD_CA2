@@ -13,5 +13,5 @@ Design and develop dynamic data-driven web applications using server-side script
 
 ***
 
-#### See the project running on a remote server [Project Homepage]()
+#### See the project running on a remote server [Project Homepage](https://mysql04.comp.dkit.ie/D00233674/SSD_CA2_final/?category_id=1 "Project Homepage")
 
